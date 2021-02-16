@@ -1,0 +1,135 @@
+Swap (call by value)
+
+#include <stdio.h>
+int main()
+{   
+    int a=10,b=20;
+    swap(a,b);
+     return 0;
+}
+int swap(int a,int b)
+{
+   int temp=0;
+    printf("The value of a=%d and b=%d before swapping\n",a,b);
+    temp=a;
+    a=b;
+    b=temp;
+    printf("The value of a=%d and b=%d after swapping\n",a,b);
+    return 0;
+}
+
+----------------------------------------------------------------------
+Swap (call by reference)
+
+#include <stdio.h>
+int main()
+{   
+    int a=10,b=20;
+    swap(&a,&b);
+     return 0;
+}
+int swap(int *a,int *b)
+{
+   int temp=0;
+    printf("The value of a=%d and b=%d before swapping\n",*a,*b);
+    temp=*a;
+    *a=*b;
+   *b=temp;
+    printf("The value of a=%d and b=%d after swapping\n",*a,*b);
+    return 0;
+}
+
+------------------------------------------------------------------------
+Find the big number in array
+
+#include <stdio.h>
+int main()
+{ 
+    int a[10],big;
+    printf("Enter the elements of array\n");
+    for(int i=0;i<10;i++)
+    scanf("%d",&a[i]);
+    big=a[0];
+    for(int i=0;i<10;i++)
+    if(big<a[i])
+    big=a[i];
+    printf("The biggest element in the array is %d\n",big);
+    return 0;
+}
+
+----------------------------------------------------------------
+Find big number using dynamic allocation
+
+#include <stdio.h>
+int main()
+{ 
+    int big;
+    int *p;
+    p=(int *) calloc(10,sizeof(int));
+    printf("Enter the elements of array\n");
+    for(int i=0;i<10;i++)
+    scanf("%d",&p[i]);
+    big=p[0];
+    for(int i=0;i<10;i++)
+    if(big<p[i])
+    big=p[i];
+    printf("The biggest element in the array is %d\n",big);
+    return 0;
+}
+
+------------------------------------------------------------------------
+Element search using dynamic allocation
+
+#include <stdio.h>
+int main()
+{ 
+    int s,flag=0;
+    int *p;
+    p=(int *) malloc(sizeof(int)*10);
+    printf("Enter the elements of array\n");
+    for(int i=0;i<10;i++)
+    scanf("%d",&p[i]);
+    printf("Enter the element to be searched\n");
+    scanf("%d",&s);
+    for(int i=0;i<10;i++)
+    if(s==p[i])
+    {
+        flag=1;
+        break;
+    }
+    if(flag==1)
+    printf("The element is found\n");
+    else
+    printf("The element is not found\n");
+    return 0;
+}
+
+------------------------------------------------------------------
+Structure using dynamic allocation
+
+#include <stdio.h>
+struct emply
+{
+    char name[10];
+    char id[10];
+    char place[10];
+};
+int main()
+{
+   struct emply *emp1;
+   emp1=(int*) malloc(sizeof(int)*3);
+     printf("Enter the empolyee details\n");
+    for(int i=0;i<3;i++)
+    {
+        scanf("%s",emp1[i].name);
+        scanf("%s",emp1[i].id);
+        scanf("%s",emp1[i].place);
+    }
+    printf("the empolyee details are\n");
+    for(int i=0;i<3;i++)
+    {
+        printf("%s\t",emp1[i].name);
+        printf("%s\t",emp1[i].id);
+        printf("%s\n",emp1[i].place);
+    }
+}
